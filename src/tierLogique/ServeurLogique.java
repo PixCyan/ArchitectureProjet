@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Created by raffennn on 11/06/2016.
  * Serveur : gestion présentation
  */
-public class ServeurPresentation implements ServicePresentation{
+public class ServeurLogique implements ServiceLogique {
     private ArrayList<Joueur> joueursConnecte = new ArrayList<>();
 
 
