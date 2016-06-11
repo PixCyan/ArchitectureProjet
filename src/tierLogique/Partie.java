@@ -1,3 +1,6 @@
+package tierLogique;
+
+import joueurs.Joueur;
 import java.util.LinkedList;
 
 /**
@@ -9,4 +12,7 @@ public class Partie {
     private int nbJoueurs;
     private int nbCarte;
     private LinkedList<Joueur> joueurs;
+
+
+
 }
