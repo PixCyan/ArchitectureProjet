@@ -63,7 +63,7 @@ public class ServeurLogique implements ServiceLogique {
                 continuer = false;
             }
         }
-        if(pseudoBddRes) {
+        if(!continuer) {
             System.out.println("Cet utilisateur existe déjà.");
         } else {
             System.out.println("Donnez votre mot de passe : ");
