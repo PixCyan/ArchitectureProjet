@@ -1,7 +1,9 @@
 import org.omg.CORBA.ORB;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
+import servants.JeuxConnexionServiceImpl;
 import servants.JeuxJoueurServiceImpl;
+import servants.JeuxPartieServiceImpl;
 
 import javax.naming.InitialContext;
 
@@ -23,6 +25,8 @@ public class ServeurCorba {
 
             InitialContext ctx = new InitialContext();
             ctx.rebind("JEUX",rootPOA.servant_to_reference(jjsi));
+            //ctx.rebind("JEUX",rootPOA.servant_to_reference(jcsi));
+            //ctx.rebind("JEUX",rootPOA.servant_to_reference(jpsi));
 
             orb.run();
 

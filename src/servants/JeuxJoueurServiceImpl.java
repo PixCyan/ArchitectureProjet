@@ -9,7 +9,7 @@ import Jeux.Joueur;
 public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
 
     @Override
-    public Joueur creerUnCompte() {
+    public Joueur creerUnCompte(String pseudo, String mdp) {
         return null;
     }
 

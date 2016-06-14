@@ -16,7 +16,7 @@ public class JeuxPartieServiceImpl extends IPartieRemotePOA {
     }
 
     @Override
-    public Partie creerPartie() {
+    public Partie creerPartie(int nbJoueurs) {
         return null;
     }
 
