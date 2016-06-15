@@ -19,14 +19,15 @@ public class ServeurCorba {
             ORB orb = ORB.init(args, null);
             POA rootPOA= POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
             rootPOA.the_POAManager().activate();
+
             JeuxJoueurServiceImpl jjsi= new JeuxJoueurServiceImpl();
-            //JeuxConnexionServiceImpl jcsi = new JeuxConnexionServiceImpl();
-            //JeuxPartieServiceImpl jpsi = new JeuxPartieServiceImpl();
+            JeuxConnexionServiceImpl jcsi = new JeuxConnexionServiceImpl();
+            JeuxPartieServiceImpl jpsi = new JeuxPartieServiceImpl();
 
             InitialContext ctx = new InitialContext();
-            ctx.rebind("JEUX",rootPOA.servant_to_reference(jjsi));
-            //ctx.rebind("JEUX",rootPOA.servant_to_reference(jcsi));
-            //ctx.rebind("JEUX",rootPOA.servant_to_reference(jpsi));
+            ctx.rebind("JEUXJOUEUR",rootPOA.servant_to_reference(jjsi));
+            ctx.rebind("JEUXCONNEXION",rootPOA.servant_to_reference(jcsi));
+            ctx.rebind("JEUXPARTIE",rootPOA.servant_to_reference(jpsi));
 
             orb.run();
 
