@@ -10,6 +10,6 @@ package Jeux;
 
 public interface IConnexionRemoteOperations 
 {
-  boolean seConnecter (String pseudo, String mdp);
+  boolean seConnecter (String pseudo, String mdp) throws Exception;
   boolean seDeconnecter (Jeux.Joueur joueur);
 } // interface IConnexionRemoteOperations

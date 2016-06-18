@@ -15,9 +15,7 @@ import java.util.ArrayList;
  * Created by Utilisateur on 13/06/2016.
  */
 public class JeuxPartieServiceImpl extends IPartieRemotePOA {
-    private static int nbPartie = 0;
-    private static Joueur joueursEnLigne[] = {};
-    private static Partie partiesEnAttente[] = {};
+
 
     @Override
     public Partie[] partiesEnAttente() {
