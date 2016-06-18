@@ -15,30 +15,34 @@ import java.util.ArrayList;
 public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
 
     @Override
-    public void creerUnCompte(String pseudo, String mdp) throws Exception {
+    public String creerUnCompte(String pseudo, String mdp) throws Exception {
         ServiceBDD service = connexionBDConnexionService();
         //TODO ajouter à la liste des joueurs connectés.
-        GestionListe.getJoueursEnLigne();
+        Joueur joueur = new Joueur();
+        joueur.pseudo = pseudo;
+        joueur.password = mdp;
+        GestionListe.getJoueursEnLigne().add(joueur);
         boolean joueurExiste = service.joueurExiste(pseudo, mdp);
         if (joueurExiste) {
             service.ajouterJoueur(pseudo, mdp);
         } else {
             //TODO renvoyer un message
         }
+        return "";
     }
 
     @Override
-    public void voirClassementJoueur() throws Exception {
+    public String voirClassementJoueur() throws Exception {
         ServiceBDD service = connexionBDConnexionService();
         ArrayList<String> joueurs = service.classement();
         System.out.println("/--------------------- Classement ---------------------/");
         joueurs.forEach(System.out::println);
-
+        return "";
     }
 
     @Override
-    public Joueur[] voirJoueursConnectes() {
-        return new Joueur[0];
+    public String voirJoueursConnectes() {
+        return "";
     }
 
     @Override
@@ -46,7 +50,10 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
         return "tamere";
     }
 
-
+    @Override
+    public String vueJoueur() {
+        return null;
+    }
 
     /**
      * Gestion de la connexion

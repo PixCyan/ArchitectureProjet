@@ -19,12 +19,12 @@ import java.util.ArrayList;
 public class JeuxPartieServiceImpl extends IPartieRemotePOA {
 
     @Override
-    public Partie[] partiesEnAttente() {
-        return new Partie[0];
+    public String partiesEnAttente() {
+        return "";
     }
 
     @Override
-    public Partie creerPartie(int nbJoueurs) {
+    public String creerPartie(int nbJoueurs) {
         Joueur joueurs[] = {};
         int nbPartie = GestionListe.getNbPartie();
         Partie partie = new Partie(++nbPartie, nbJoueurs, 32,joueurs);
@@ -32,13 +32,18 @@ public class JeuxPartieServiceImpl extends IPartieRemotePOA {
         //partie.joueurs[] = joueur;
         //partiesEnAttente[partiesEnAttente.length+1] = partie;
         System.out.println("Test");
-        return partie;
+        return "";
     }
 
     @Override
-    public Joueur[] voirJoueursEnPartie(Partie partie) {
+    public String voirJoueursEnPartie(Partie partie) {
 
-        return new Joueur[0];
+        return "";
+    }
+
+    @Override
+    public String vuePartie() {
+        return null;
     }
 
 }

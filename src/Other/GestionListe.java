@@ -3,19 +3,17 @@ package Other;
 import Jeux.Joueur;
 import Jeux.Partie;
 
+import java.util.ArrayList;
+
 /**
  * Created by Utilisateur on 18/06/2016.
  * Gestion des différentes listes
  */
 public class GestionListe {
     private static int nbPartie = 0;
-    private static Joueur joueursEnLigne[] = {};
-    private static Partie partiesEnAttente[] = {};
+    private static ArrayList<Joueur> joueursEnLigne = new ArrayList<>();
+    private static ArrayList<Partie> partiesEnAttente = new ArrayList<>();
 
-
-    public static void addJoueur(Joueur joueur) {
-        joueursEnLigne[joueursEnLigne.length+1] = joueur;
-    }
 
     public static int getNbPartie() {
         return nbPartie;
@@ -25,19 +23,19 @@ public class GestionListe {
         GestionListe.nbPartie = nbPartie;
     }
 
-    public static Joueur[] getJoueursEnLigne() {
+    public static ArrayList<Joueur> getJoueursEnLigne() {
         return joueursEnLigne;
     }
 
-    public static void setJoueursEnLigne(Joueur[] joueursEnLigne) {
+    public static void setJoueursEnLigne(ArrayList<Joueur> joueursEnLigne) {
         GestionListe.joueursEnLigne = joueursEnLigne;
     }
 
-    public static Partie[] getPartiesEnAttente() {
+    public static ArrayList<Partie> getPartiesEnAttente() {
         return partiesEnAttente;
     }
 
-    public static void setPartiesEnAttente(Partie[] partiesEnAttente) {
+    public static void setPartiesEnAttente(ArrayList<Partie> partiesEnAttente) {
         GestionListe.partiesEnAttente = partiesEnAttente;
     }
 }

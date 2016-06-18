@@ -13,18 +13,20 @@ import java.rmi.registry.Registry;
 public class JeuxConnexionServiceImpl extends IConnexionRemotePOA {
 
     @Override
-    public boolean seConnecter(String pseudo, String mdp) throws Exception {
+    public String seConnecter(String pseudo, String mdp) throws Exception {
         ServiceBDD service = connexionBDConnexionService();
         //TODO ajouter à la liste des joueurs connectés.
-        return service.verifierConnexion(pseudo, mdp);
+        service.verifierConnexion(pseudo, mdp);
+        return "";
+
     }
 
     @Override
-    public boolean seDeconnecter(Joueur joueur) {
+    public String seDeconnecter(Joueur joueur) {
         //Euh je crois qu'on a pas besoin de ça mais à voir
         //peut etre juste pour retirer de la liste
         //TODO retirer de la liste des joueurs
-        return false;
+        return "";
     }
 
     /**
