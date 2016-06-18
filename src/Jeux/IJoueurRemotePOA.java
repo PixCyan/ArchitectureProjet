@@ -38,7 +38,11 @@ public abstract class IJoueurRemotePOA extends org.omg.PortableServer.Servant
        {
          String pseudo = in.read_string ();
          String mdp = in.read_string ();
-         this.creerUnCompte (pseudo, mdp);
+         try {
+           this.creerUnCompte (pseudo, mdp);
+         } catch (Exception e) {
+           e.printStackTrace();
+         }
          out = $rh.createReply();
          break;
        }
@@ -55,7 +59,11 @@ public abstract class IJoueurRemotePOA extends org.omg.PortableServer.Servant
 
        case 2:  // Jeux/IJoueurRemote/voirClassementJoueur
        {
-         this.voirClassementJoueur ();
+         try {
+           this.voirClassementJoueur ();
+         } catch (Exception e) {
+           e.printStackTrace();
+         }
          out = $rh.createReply();
          break;
        }

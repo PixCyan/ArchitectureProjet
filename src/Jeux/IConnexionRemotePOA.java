@@ -37,7 +37,11 @@ public abstract class IConnexionRemotePOA extends org.omg.PortableServer.Servant
          String pseudo = in.read_string ();
          String mdp = in.read_string ();
          boolean $result = false;
-         $result = this.seConnecter (pseudo, mdp);
+         try {
+           $result = this.seConnecter (pseudo, mdp);
+         } catch (Exception e) {
+           e.printStackTrace();
+         }
          out = $rh.createReply();
          out.write_boolean ($result);
          break;
