@@ -1,6 +1,5 @@
 import servants.JeuxJoueurServiceImpl;
 import serveurBDD.ServiceBDD;
-import tierLogique.ServiceLogique;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;

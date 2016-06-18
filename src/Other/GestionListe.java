@@ -5,12 +5,17 @@ import Jeux.Partie;
 
 /**
  * Created by Utilisateur on 18/06/2016.
+ * Gestion des différentes listes
  */
 public class GestionListe {
-
     private static int nbPartie = 0;
     private static Joueur joueursEnLigne[] = {};
     private static Partie partiesEnAttente[] = {};
+
+
+    public static void addJoueur(Joueur joueur) {
+        joueursEnLigne[joueursEnLigne.length+1] = joueur;
+    }
 
     public static int getNbPartie() {
         return nbPartie;

@@ -2,6 +2,7 @@ package servants;
 
 import Jeux.IJoueurRemotePOA;
 import Jeux.Joueur;
+import Other.GestionListe;
 import serveurBDD.ServiceBDD;
 
 import java.rmi.registry.LocateRegistry;
@@ -17,6 +18,7 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
     public void creerUnCompte(String pseudo, String mdp) throws Exception {
         ServiceBDD service = connexionBDConnexionService();
         //TODO ajouter à la liste des joueurs connectés.
+        GestionListe.getJoueursEnLigne();
         boolean joueurExiste = service.joueurExiste(pseudo, mdp);
         if (joueurExiste) {
             service.ajouterJoueur(pseudo, mdp);

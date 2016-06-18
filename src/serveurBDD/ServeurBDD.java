@@ -1,5 +1,6 @@
 package serveurBDD;
 
+import Other.GestionListe;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -9,9 +10,11 @@ import java.util.ArrayList;
 
 /**
  * Created by PixCyan on 18/06/2016.
+ * Serveur RMI : gestion de la BDD
  */
 public class ServeurBDD  implements ServiceBDD  {
     private static ModeleDonnees md = new ModeleDonnees();
+    private static GestionListe listes = new GestionListe();
 
 
     public static void main(String [] args) throws Exception {
@@ -35,7 +38,7 @@ public class ServeurBDD  implements ServiceBDD  {
     }
 
     @Override
-    public ArrayList classement() throws RemoteException, SQLException {
+    public ArrayList<String> classement() throws RemoteException, SQLException {
         md.classement();
         return null;
     }
