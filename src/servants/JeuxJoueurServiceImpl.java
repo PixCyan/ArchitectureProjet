@@ -43,7 +43,7 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
 
     @Override
     public String voirLeScore(Joueur joueur) {
-        return null;
+        return "tamere";
     }
 
 

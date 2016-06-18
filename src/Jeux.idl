@@ -23,19 +23,21 @@ module Jeux {
     };
 
     interface IConnexionRemote{
-         boolean seConnecter( in string pseudo, in string mdp);
-         boolean seDeconnecter(in Joueur joueur);
+         string seConnecter( in string pseudo, in string mdp);
+         string seDeconnecter(in Joueur joueur);
     };
     interface IJoueurRemote{
-        void creerUnCompte( in string pseudo, in string mdp);
+        string creerUnCompte( in string pseudo, in string mdp);
         string voirLeScore( in Joueur joueur);
-        void voirClassementJoueur();
-        listeJoueurs voirJoueursConnectes();
+        string voirClassementJoueur();
+        string voirJoueursConnectes();
+        string vueJoueur();
     };
     interface IPartieRemote{
-        listePartiesEnAttente partiesEnAttente();
-        Partie creerPartie(in long nbJoueurs);
-        listeJoueurs voirJoueursEnPartie( in Partie partie);
+        string partiesEnAttente();
+        string creerPartie(in long nbJoueurs);
+        string voirJoueursEnPartie( in Partie partie);
+        string vuePartie();
     };
 
 };
