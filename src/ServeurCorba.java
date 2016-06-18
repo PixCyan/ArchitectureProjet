@@ -10,7 +10,7 @@ import javax.naming.InitialContext;
 /**
  * Created by Utilisateur on 14/06/2016.
  */
-public class ServeurCorba {
+public class ServeurCorba  {
 
     public static void main(String[] args){
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  * Created by raffennn on 11/06/2016.
- * Serveur : gestion présentation
+ * ServeurBDD : gestion présentation
  */
 public class ServeurLogique implements ServiceLogique {
     private ArrayList<Joueur> joueursConnecte = new ArrayList<>();

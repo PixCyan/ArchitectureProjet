@@ -27,9 +27,9 @@ module Jeux {
          boolean seDeconnecter(in Joueur joueur);
     };
     interface IJoueurRemote{
-        Joueur creerUnCompte( in string pseudo, in string mdp);
+        void creerUnCompte( in string pseudo, in string mdp);
         string voirLeScore( in Joueur joueur);
-        listeClassement voirClassementJoueur();
+        void voirClassementJoueur();
         listeJoueurs voirJoueursConnectes();
     };
     interface IPartieRemote{

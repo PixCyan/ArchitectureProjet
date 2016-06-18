@@ -1,4 +1,5 @@
 import servants.JeuxJoueurServiceImpl;
+import serveurBDD.ServiceBDD;
 import tierLogique.ServiceLogique;
 
 import java.rmi.RemoteException;
@@ -22,11 +23,12 @@ public class ConnexionBD extends UnicastRemoteObject implements Test {
 
 
 
-    public static void connexionBDConnexionService() throws Exception{
+    public static ServiceBDD connexionBDConnexionService() throws Exception{
 
+        //Se connecte au serveurBDD
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 3000);
-        final ConnexionBD client = new ConnexionBD();
-
+        ServiceBDD service;
+        return service = (ServiceBDD) registry.lookup("ServiceBDD");
     }
 
 }
