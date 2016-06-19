@@ -1,16 +1,10 @@
 package servants;
 
-import Jeux.IPartieRemote;
 import Jeux.IPartieRemotePOA;
 import Jeux.Joueur;
 import Jeux.Partie;
 import Other.GestionListe;
-import serveurBDD.ServiceBDD;
 
-import java.lang.reflect.Array;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
-import java.util.ArrayList;
 
 /**
  * Created by Utilisateur on 13/06/2016.

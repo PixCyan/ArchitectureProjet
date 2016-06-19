@@ -11,7 +11,7 @@ package Jeux;
 public interface IJoueurRemoteOperations 
 {
   String creerUnCompte (String pseudo, String mdp) throws Exception;
-  String voirLeScore (Jeux.Joueur joueur);
+  String voirLeScore (Jeux.Joueur joueur) throws Exception;
   String voirClassementJoueur () throws Exception;
   String voirJoueursConnectes ();
   String vueJoueur ();

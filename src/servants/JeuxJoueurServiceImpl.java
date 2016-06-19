@@ -8,6 +8,9 @@ import serveurBDD.ServiceBDD;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import static Other.GestionListe.getJoueursEnLigne;
 
 /**
  * Created by Utilisateur on 13/06/2016.
@@ -17,18 +20,33 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
     @Override
     public String creerUnCompte(String pseudo, String mdp) throws Exception {
         ServiceBDD service = connexionBDConnexionService();
-        //TODO ajouter à la liste des joueurs connectés.
-        Joueur joueur = new Joueur();
-        joueur.pseudo = pseudo;
-        joueur.password = mdp;
-        GestionListe.getJoueursEnLigne().add(joueur);
-        boolean joueurExiste = service.joueurExiste(pseudo, mdp);
-        if (!joueurExiste) {
-            service.ajouterJoueur(pseudo, mdp);
-        } else {
-            //TODO renvoyer un message
+        Boolean pseudoExiste=true;
+        boolean joueurExiste;
+        Boolean quitter=false;
+        while (pseudoExiste && quitter==false) {
+            joueurExiste = service.joueurExiste(pseudo, mdp);
+            if (!joueurExiste) {
+                Joueur joueur = new Joueur();
+                joueur.pseudo = pseudo;
+                joueur.password = mdp;
+                service.ajouterJoueur(pseudo, mdp);
+                getJoueursEnLigne().add(joueur);
+                pseudoExiste=false;
+            } else {
+                System.out.println("Pseudo " + pseudo + " déjà existant, veuillez en choisir un autre\n");
+                Scanner scan = new Scanner(System.in);
+                System.out.println("\tEntrez votre pseudo : (exit pour annuler)");
+                pseudo = scan.nextLine();
+                if(!pseudo.equals("exit")) {
+                    System.out.println("\tEntrez votre mot de passe : ");
+                    mdp = scan.nextLine();
+                }
+                else{
+                    quitter=true;
+                }
+            }
         }
-        return "";
+        return "Bienvenu " + pseudo;
     }
 
     @Override
@@ -42,12 +60,20 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
 
     @Override
     public String voirJoueursConnectes() {
+        ArrayList<Joueur> joueur= GestionListe.getJoueursEnLigne();
+        System.out.println("Liste des joueurs connectés : \n");
+        for(Joueur joueurCo :  joueur){
+            System.out.println(joueurCo.pseudo+"\n");
+        }
         return "";
     }
 
     @Override
-    public String voirLeScore(Joueur joueur) {
-        return "tamere";
+    public String voirLeScore(Joueur joueur)throws Exception {
+        ServiceBDD service = connexionBDConnexionService();
+        Integer score=service.scoreJoueur(joueur.pseudo);
+        System.out.println("Votre score : "+score);
+        return "";
     }
 
     @Override

@@ -5,12 +5,8 @@ import org.omg.PortableServer.POAHelper;
 import servants.JeuxConnexionServiceImpl;
 import servants.JeuxJoueurServiceImpl;
 import servants.JeuxPartieServiceImpl;
-import serveurBDD.ServiceBDD;
-
 import javax.naming.InitialContext;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 /**
