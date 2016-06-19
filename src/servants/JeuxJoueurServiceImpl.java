@@ -23,7 +23,7 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
         joueur.password = mdp;
         GestionListe.getJoueursEnLigne().add(joueur);
         boolean joueurExiste = service.joueurExiste(pseudo, mdp);
-        if (joueurExiste) {
+        if (!joueurExiste) {
             service.ajouterJoueur(pseudo, mdp);
         } else {
             //TODO renvoyer un message
@@ -64,7 +64,6 @@ public class JeuxJoueurServiceImpl extends IJoueurRemotePOA{
 
         //Se connecte au serveurBDD
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 3000);
-        ServiceBDD service;
-        return service = (ServiceBDD) registry.lookup("ServiceBDD");
+        return (ServiceBDD) registry.lookup("ServiceBDD");
     }
 }

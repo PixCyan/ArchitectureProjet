@@ -1,20 +1,29 @@
+import Other.GestionListe;
 import org.omg.CORBA.ORB;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 import servants.JeuxConnexionServiceImpl;
 import servants.JeuxJoueurServiceImpl;
 import servants.JeuxPartieServiceImpl;
+import serveurBDD.ServiceBDD;
 
 import javax.naming.InitialContext;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 
 /**
  * Created by Utilisateur on 14/06/2016.
  */
-public class ServeurCorba  {
+public class ServeurCorba extends UnicastRemoteObject {
+
+    private static GestionListe listes = new GestionListe();
+
+    protected ServeurCorba() throws RemoteException {
+    }
 
     public static void main(String[] args){
-
-
         try {
             ORB orb = ORB.init(args, null);
             POA rootPOA= POAHelper.narrow(orb.resolve_initial_references("RootPOA"));

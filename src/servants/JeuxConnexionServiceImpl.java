@@ -14,11 +14,12 @@ public class JeuxConnexionServiceImpl extends IConnexionRemotePOA {
 
     @Override
     public String seConnecter(String pseudo, String mdp) throws Exception {
-        ServiceBDD service = connexionBDConnexionService();
+        //ServiceBDD service = connexionBDConnexionService();
         //TODO ajouter à la liste des joueurs connectés.
+        Registry registry = LocateRegistry.getRegistry("127.0.0.1", 3000);
+        ServiceBDD service = (ServiceBDD) registry.lookup("ServiceBDD");
         service.verifierConnexion(pseudo, mdp);
         return "";
-
     }
 
     @Override
@@ -37,7 +38,6 @@ public class JeuxConnexionServiceImpl extends IConnexionRemotePOA {
     private static ServiceBDD connexionBDConnexionService() throws Exception{
         //Se connecte au serveurBDD
         Registry registry = LocateRegistry.getRegistry("127.0.0.1", 3000);
-        ServiceBDD service;
-        return service = (ServiceBDD) registry.lookup("ServiceBDD");
+        return (ServiceBDD) registry.lookup("ServiceBDD");
     }
 }

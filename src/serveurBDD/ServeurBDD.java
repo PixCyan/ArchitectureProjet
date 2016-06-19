@@ -1,6 +1,5 @@
 package serveurBDD;
 
-import Other.GestionListe;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -13,8 +12,7 @@ import java.util.ArrayList;
  * Serveur RMI : gestion de la BDD
  */
 public class ServeurBDD  implements ServiceBDD  {
-    private static ModeleDonnees md = new ModeleDonnees();
-    private static GestionListe listes = new GestionListe();
+    private static final ModeleDonnees md = new ModeleDonnees();
 
 
     public static void main(String [] args) throws Exception {
@@ -25,6 +23,10 @@ public class ServeurBDD  implements ServiceBDD  {
         stub = (ServiceBDD) UnicastRemoteObject.exportObject(service,0);
         Registry registry = LocateRegistry.createRegistry(3000);
         registry.bind("ServiceBDD", stub);
+        boolean continuer = true;
+        while(continuer) {
+
+        }
     }
 
     @Override
