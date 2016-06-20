@@ -1,3 +1,5 @@
+package Client;
+
 import Jeux.*;
 import org.omg.CORBA.Object;
 
