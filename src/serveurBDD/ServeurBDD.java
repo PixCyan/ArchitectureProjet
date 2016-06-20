@@ -22,7 +22,7 @@ public class ServeurBDD  implements ServiceBDD  {
         ServiceBDD stub;
         stub = (ServiceBDD) UnicastRemoteObject.exportObject(service,0);
         Registry registry = LocateRegistry.createRegistry(3000);
-        registry.bind("ServiceBDD", stub);
+        registry.rebind("ServiceBDD", stub);
         boolean continuer = true;
         while(continuer) {
 
